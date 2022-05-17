@@ -18,6 +18,8 @@ export const Window: React.FC<NodeProps> = (props) => {
       // fixme: using constants in @mui
       sx={{
         backgroundColor: '#fff',
+        display: 'flex',
+        flexDirection: 'column',
         minWidth: '300px',
         minHeight: '400px',
         width: 'auto',
@@ -38,7 +40,7 @@ export const Window: React.FC<NodeProps> = (props) => {
           borderTopLeftRadius: '6px',
           borderTopRightRadius: '6px',
           userSelect: 'none',
-          cursor: 'default'
+          cursor: 'grab'
         }}>
         <Box
           aria-label='buttons'
@@ -90,7 +92,15 @@ export const Window: React.FC<NodeProps> = (props) => {
           {props.data.title}
         </Box>
       </Box>
-      <Box aria-label='content'>{props.data.label}</Box>
+      <Box
+        aria-label='content'
+        className='nodrag'
+        sx={{
+          flex: '1 1 auto',
+          cursor: 'default'
+        }}>
+        {props.data.label}
+      </Box>
     </Box>
   )
 }
