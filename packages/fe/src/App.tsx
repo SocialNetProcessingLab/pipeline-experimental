@@ -5,6 +5,7 @@ import ReactFlow, { addEdge, Controls, updateEdge, useEdgesState, useNodesState 
 
 import { Source } from './components/Source'
 import { Target } from './components/Target'
+import { Window } from './components/Window'
 
 const initialNodes: Node[] = [
   {
@@ -21,7 +22,8 @@ const initialNodes: Node[] = [
   },
   {
     id: '3',
-    data: { label: 'Node C' },
+    type: 'window',
+    data: { label: 'Hello, world!', title: 'Test' },
     position: { x: 400, y: 200 }
   }
 ]
@@ -38,7 +40,8 @@ const initialEdges: Edge[] = [
 
 const nodeTypes = {
   dataSource: Source,
-  dataTarget: Target
+  dataTarget: Target,
+  window: Window
 }
 
 export const App: React.FC = function App () {
