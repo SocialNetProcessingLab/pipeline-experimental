@@ -1,6 +1,15 @@
-import { Box } from '@mui/material'
+import CloseIcon from '@mui/icons-material/Close'
+import OpenInFullIcon from '@mui/icons-material/OpenInFull'
+import { Box, styled } from '@mui/material'
 import React from 'react'
 import { NodeProps } from 'react-flow-renderer'
+const BarButton = styled(Box)({
+  display: 'flex',
+  width: '11px',
+  height: '11px',
+  borderRadius: '50%',
+  cursor: 'pointer'
+})
 
 export const Window: React.FC<NodeProps> = (props) => {
   return (
@@ -20,6 +29,7 @@ export const Window: React.FC<NodeProps> = (props) => {
       <Box
         aria-label='title-bar'
         sx={{
+          display: 'flex',
           color: '#4d494d',
           textAlign: 'center',
           height: '20px',
@@ -30,11 +40,55 @@ export const Window: React.FC<NodeProps> = (props) => {
           userSelect: 'none',
           cursor: 'default'
         }}>
-        <Box aria-label='buttons'>
-          <Box aria-label='delete' />
-          <Box aria-label='minimize' />
+        <Box
+          aria-label='buttons'
+          sx={{
+            paddingLeft: '8px',
+            paddingTop: '3px',
+            display: 'flex',
+            flexDirection: 'row',
+            gap: '6px'
+          }}>
+          <BarButton
+            aria-label='delete'
+            sx={{
+              backgroundColor: '#ff5c5c',
+              border: '1px solid #e33e41',
+              '&:active': {
+                backgroundColor: '#c14645'
+              }
+            }}>
+            <CloseIcon
+              style={{
+                width: '11px',
+                height: '11px'
+              }}
+            />
+          </BarButton>
+          <BarButton
+            aria-label='minimize'
+            sx={{
+              backgroundColor: '#00ca56',
+              border: '1px solid #14ae46',
+              '&:active': {
+                backgroundColor: '#029740'
+              }
+            }}>
+            <OpenInFullIcon
+              style={{
+                width: '11px',
+                height: '11px'
+              }}
+            />
+          </BarButton>
         </Box>
-        <Box aria-label='header'>{props.data.title}</Box>
+        <Box
+          aria-label='header'
+          sx={{
+            flex: '1 1 auto'
+          }}>
+          {props.data.title}
+        </Box>
       </Box>
       <Box aria-label='content'>{props.data.label}</Box>
     </Box>
