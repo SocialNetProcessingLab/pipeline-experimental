@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import React, { useCallback } from 'react'
 import type { Connection, Edge, Node } from 'react-flow-renderer'
 import ReactFlow, { addEdge, Controls, updateEdge, useEdgesState, useNodesState } from 'react-flow-renderer'
@@ -57,7 +57,6 @@ export const App: React.FC = function App () {
 
   return (
     <>
-      <Typography variant='h1'>Hello world!</Typography>
       <Box
         component='div'
         sx={{
