@@ -49,7 +49,13 @@ export const Window: React.FC<NodeProps> = (props) => {
             paddingTop: '3px',
             display: 'flex',
             flexDirection: 'row',
-            gap: '6px'
+            gap: '6px',
+            '& svg': {
+              visibility: 'hidden'
+            },
+            '&:hover svg': {
+              visibility: 'visible'
+            }
           }}>
           <BarButton
             aria-label='delete'
